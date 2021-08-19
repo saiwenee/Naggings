@@ -10,6 +10,9 @@ export default defineConfig({
       },
     }),
   ],
+  optimizeDeps: {
+    include: ['@kangc/v-md-editor/lib/theme/github.js'],
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),

@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-gray-50">
-    <div
+  <!-- <div class="bg-gray-50"> -->
+    <!-- <div
       class="
         max-w-screen-xl
         px-4
@@ -14,49 +14,6 @@
         lg:justify-between
       "
     >
-      <h2
-        class="
-          text-3xl
-          font-extrabold
-          leading-9
-          tracking-tight
-          text-gray-900
-          sm:text-4xl
-          sm:leading-10
-        "
-      >
-        Ready to dive in?
-        <br />
-        <span class="text-indigo-600">Vite + Vue 3 + Tailwind CSS</span>
-      </h2>
-      <div class="flex mt-8 lg:flex-shrink-0 lg:mt-0">
-        <div class="inline-flex rounded-md shadow">
-          <router-link
-            to="/about"
-            class="
-              inline-flex
-              items-center
-              justify-center
-              px-5
-              py-3
-              text-base
-              font-medium
-              leading-6
-              text-white
-              transition
-              duration-150
-              ease-in-out
-              bg-indigo-600
-              border border-transparent
-              rounded-md
-              hover:bg-indigo-500
-              focus:outline-none
-            "
-            >Next Page</router-link
-          >
-        </div>
-        <ButtonRepo />
-      </div>
       <p class="tip">现在总共 b 了 {{ count }} 条</p>
       <section
         class="item"
@@ -64,6 +21,7 @@
         v-for="item in contents"
         v-cloak
       >
+        <v-md-preview :text="item.attributes.nagging"></v-md-preview>
         <p v-html="item.attributes.nagging"></p>
         <time v-bind:datetime="item.attributes.time">{{
           item.attributes.time
@@ -75,19 +33,62 @@
         </button>
         <p class="tip" v-else>别急，加载呢</p>
       </div>
+    </div> -->
+
+    <div class="container my-12 mx-auto px-4 md:px-12">
+      <p class="tip">现在总共 b 了 {{ count }} 条</p>
+      <div class="flex flex-wrap flex-col items-center -mx-1 lg:-mx-4">
+        <!-- Column -->
+        <div
+          class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/2"
+          v-bind:class="'type-' + item.attributes.type"
+          v-for="item in contents"
+          v-cloak
+        >
+          <!-- Article -->
+          <article class="overflow-hidden rounded-lg shadow-lg">
+
+            <header
+              class="flex items-center justify-between leading-tight p-2 md:p-4"
+            >
+            <a
+                class="
+                  flex
+                  items-center
+                  no-underline
+                  hover:underline
+                  text-black
+                "
+                href="#"
+              >
+                <img
+                  alt="Placeholder"
+                  class="block rounded-full"
+                  src="https://picsum.photos/32/32/?random"
+                />
+                <p class="ml-2 text-sm">7ee</p>
+              </a>
+              <time
+                class="text-grey-darker text-sm"
+                v-bind:datetime="item.attributes.time"
+                >{{ item.attributes.time }}</time
+              >
+            </header>
+            <v-md-preview :text="item.attributes.nagging"></v-md-preview>
+          </article>
+          <!-- END Article -->
+        </div>
+        <!-- END Column -->
+      </div>
     </div>
-  </div>
+  <!-- </div> -->
 </template>
 <script>
-import ButtonRepo from '@/components/ButtonRepo.vue';
 import AV from 'leancloud-storage';
 const { Query } = AV;
 const query = new AV.Query('naggings');
 
 export default {
-  components: {
-    ButtonRepo
-  },
   data() {
     return {
       page: 0,
@@ -117,7 +118,7 @@ export default {
   },
   methods: {
     loadMore: function (event) {
-    let that = this;
+      let that = this;
       that.getData(++that.page);
     },
     //识别 URL 链接

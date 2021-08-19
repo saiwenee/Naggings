@@ -1,5 +1,5 @@
 <script setup>
-import ButtonRepo from '@/components/ButtonRepo.vue'
+// import ButtonRepo from '@/components/ButtonRepo.vue'
 </script>
 
 <template>
@@ -22,7 +22,7 @@ import ButtonRepo from '@/components/ButtonRepo.vue'
             >Back Home</router-link
           >
         </div>
-        <ButtonRepo />
+        <!-- <ButtonRepo /> -->
       </div>
     </div>
   </div>
