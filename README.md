@@ -1,6 +1,6 @@
 # `Vite + Vue 3 + Tailwind CSS⚡`
 
-![bb](https://bb.7ee.life)
+[bb](https://bb.7ee.life)
 
 npm:
 ```sh
