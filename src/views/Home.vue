@@ -11,29 +11,16 @@
 
       <div
         class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/2"
-        v-bind:class="'type-' + item.attributes.type"
         v-for="item in contents"
         v-cloak
       >
         <article class="overflow-hidden rounded-lg shadow-lg">
           <header
-            class="flex items-center justify-between leading-tight p-2 md:p-4"
+            class="flex items-center justify-end leading-tight p-2 md:p-4"
           >
-            <a
-              class="flex items-center no-underline hover:underline text-black"
-              href="#"
-            >
-              <img
-                alt="Placeholder"
-                class="block rounded-full"
-                src="https://picsum.photos/32/32/?random"
-              />
-              <p class="ml-2 text-sm">7ee</p>
-            </a>
             <time
               class="text-grey-darker text-sm"
-              v-bind:datetime="item.attributes.time"
-              >{{ item.attributes.time }}</time
+              >{{ item.attributes.nowTime }}</time
             >
           </header>
           <v-md-preview :text="item.attributes.nagging"></v-md-preview>
@@ -334,10 +321,9 @@ export default {
             } else {
               let resC = results;
               console.log(resC);
-              // le'treqData = false;
               resC.forEach((i) => {
-                // i.attributes.time = moment(i.createdAt).format("dddd, MMMM Do YYYY, h:mm:ss a");
-                i.attributes.time = moment(i.createdAt).fromNow();
+                i.attributes.time = moment(i.createdAt).format("dddd, MMMM Do YYYY, h:mm:ss a");
+                i.attributes.nowTime = moment(i.createdAt).fromNow();
                 // i.attributes.time = i.createdAt
                 this.contents.push(i);
               });
