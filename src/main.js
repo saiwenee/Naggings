@@ -11,19 +11,12 @@ import '@kangc/v-md-editor/lib/theme/style/github.css';
 // highlightjs
 import hljs from 'highlight.js';
 
-
-
 const app = createApp(App)
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
 })
-
-app.use(router)
-app.mount('#app')
-app.use(VMdEditor);
-app.use(VMdPreview);
 
 VMdEditor.use(githubTheme, {
   Hljs: hljs,
@@ -32,3 +25,8 @@ VMdEditor.use(githubTheme, {
 VMdPreview.use(githubTheme, {
   Hljs: hljs
 });
+
+app.use(router)
+app.mount('#app')
+app.use(VMdEditor);
+app.use(VMdPreview);

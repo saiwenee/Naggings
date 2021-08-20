@@ -3318,6 +3318,11 @@ object.pick@^1.3.0:
   dependencies:
     isobject "^3.0.1"
 
+oh-vue-icons@^0.4.7:
+  version "0.4.7"
+  resolved "https://registry.nlark.com/oh-vue-icons/download/oh-vue-icons-0.4.7.tgz#ead3f6527db084e30cc9acfebbcf3c7bb31ad69e"
+  integrity sha1-6tP2Un2whOMMyaz+u888e7Ma1p4=
+
 once@^1.3.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/once/-/once-1.4.0.tgz#583b1aa775961d4b113ac17d9c50baef9dd76bd1"
