@@ -4,9 +4,59 @@
       <p class="tip" v-on:click="bb">7ee 现在一共 BB 了 {{ count }} 条</p>
       <div
         v-if="clickCount === 7"
-        class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/2"
+        class="
+          flex flex-wrap flex-col
+          my-1
+          px-1
+          w-full
+          md:w-1/2
+          lg:my-4
+          lg:px-4
+          lg:w-1/2
+          text-sm
+        "
       >
         <v-md-editor v-model="nagging" height="400px"></v-md-editor>
+        <div class="flex flex-nowrap flex-row justify-end items-center">
+          <button
+            class="
+              bg-blue-500
+              hover:bg-blue-400
+              text-white
+              font-normal
+              py-1
+              px-3
+              m-2
+              border-b-4 border-blue-700
+              hover:border-blue-500
+              rounded
+              inline-flex
+              items-center
+            "
+            v-on:click="clickCount = 0"
+          >
+            BB
+          </button>
+          <button
+            class="
+              bg-red-500
+              hover:bg-red-400
+              text-white
+              font-normal
+              py-1
+              px-2
+              m-2
+              border-b-4 border-red-700
+              hover:border-red-500
+              rounded
+              inline-flex
+              items-center
+            "
+            v-on:click="clickCount = 0"
+          >
+            关闭
+          </button>
+        </div>
       </div>
 
       <div
@@ -18,10 +68,9 @@
           <header
             class="flex items-center justify-end leading-tight p-2 md:p-4"
           >
-            <time
-              class="text-grey-darker text-sm"
-              >{{ item.attributes.nowTime }}</time
-            >
+            <time class="text-grey-darker text-sm">{{
+              item.attributes.nowTime
+            }}</time>
           </header>
           <v-md-preview :text="item.attributes.nagging"></v-md-preview>
         </article>
@@ -32,52 +81,56 @@
         </button>
         <p class="tip" v-else>别急，加载呢</p>
       </div>
-      <div
+      <span
         class="
-          flex flex-nowrap flex-row
-          justify-evenly
-          items-center
+          text-xs
+          Capitalize
+          text-gray-400
+          tracking-wider
+          text-left
+          leading-none
+          antialiased
+          italic
+          font-light
           w-full
+          my-3
           md:w-1/2
-          lg:my-4
+          lg:my-3
           lg:px-4
           lg:w-1/2
         "
       >
-        <span
-          class="
-            text-xs
-            Capitalize
-            text-gray-400
-            tracking-wider
-            text-left
-            leading-none
-            antialiased
-            italic
-            font-light
-          "
+        Copyright © {{ year }}
+        <a
+          href="https://7ee.life"
+          class="no-underline hover:underline hover:text-gray-700"
+          >7ee</a
+        >. All rights reserved. Power By
+        <a
+          href="https://vercel.com"
+          class="no-underline hover:underline ..."
+          target="_blank"
+          >Vercel</a
         >
-          Copyright © {{ year }}
-          <a
-            href="https://7ee.life"
-            class="no-underline hover:underline hover:text-gray-700"
-            >7ee</a
-          >. All rights reserved. <br />
-          Power By
-          <a
-            href="https://vercel.com"
-            class="no-underline hover:underline ..."
-            target="_blank"
-            >Vercel</a
-          >
-          &
-          <a
-            href="https://leancloud.app"
-            class="no-underline hover:underline ..."
-            target="_blank"
-            >LeanCloud</a
-          >
-        </span>
+        &
+        <a
+          href="https://leancloud.app"
+          class="no-underline hover:underline ..."
+          target="_blank"
+          >LeanCloud</a
+        >
+      </span>
+      <div
+        class="
+          flex flex-nowrap flex-row
+          justify-end
+          items-center
+          w-full
+          md:w-1/2
+          lg:px-4
+          lg:w-1/2
+        "
+      >
         <a :href="githubPath" target="_blank">
           <button
             class="
@@ -87,6 +140,7 @@
               font-normal
               py-1
               px-2
+              mx-0.5
               border-b-4 border-gray-700
               hover:border-gray-500
               rounded
@@ -118,6 +172,7 @@
               font-normal
               py-1
               px-2
+              mx-0.5
               border-b-4 border-blue-700
               hover:border-blue-500
               rounded
@@ -149,6 +204,7 @@
               font-normal
               py-1
               px-2
+              mx-0.5
               border-b-4 border-purple-700
               hover:border-purple-500
               rounded
@@ -180,6 +236,7 @@
               font-normal
               py-1
               px-2
+              mx-0.5
               border-b-4 border-red-700
               hover:border-red-500
               rounded
@@ -212,6 +269,7 @@
               font-normal
               py-1
               px-2
+              mx-0.5
               border-b-4 border-pink-700
               hover:border-pink-500
               rounded
@@ -257,7 +315,7 @@ export default {
       contents: [],
       clickCount: 0,
       githubPath: 'https://github.com/saiwenee/Naggings',
-      tgPath:'https://t.me/saiwenee',
+      tgPath: 'https://t.me/saiwenee',
       insPath: 'https://www.instagram.com/7eezzz/',
       neteastPath: 'https://music.163.com/#/user/home?id=7235578',
       biliPath: 'https://space.bilibili.com/29105587'
@@ -322,7 +380,9 @@ export default {
               let resC = results;
               console.log(resC);
               resC.forEach((i) => {
-                i.attributes.time = moment(i.createdAt).format("dddd, MMMM Do YYYY, h:mm:ss a");
+                i.attributes.time = moment(i.createdAt).format(
+                  'dddd, MMMM Do YYYY, h:mm:ss a'
+                );
                 i.attributes.nowTime = moment(i.createdAt).fromNow();
                 // i.attributes.time = i.createdAt
                 this.contents.push(i);
