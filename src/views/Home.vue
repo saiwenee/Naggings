@@ -2,12 +2,10 @@
   <div class="container my-12 mx-auto px-4 md:px-12">
     <div class="flex flex-wrap flex-col items-center -mx-1 lg:-mx-4">
       <h1 class="topic" data-text="7ee">7ee</h1>
-      <div class="table" v-on:click="bb">
+      <div class="table lg:w-1/5" v-on:click="bb">
         <div class="monitor-wrapper">
           <div class="monitor">
-            <p>
-              7ee 现在一共 BB 了 {{ count }} 条
-            </p>
+            <p>7ee 现在一共 BB 了 {{ count }} 条</p>
           </div>
         </div>
       </div>
@@ -408,8 +406,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 @font-face {
-  font-family: 'ipix';  //重命名字体名
-  src: url('@/assets/fonts/ipix_12px.ttf');  //引入字体
+  font-family: 'ipix'; //重命名字体名
+  src: url('@/assets/fonts/ipix_12px.ttf'); //引入字体
   font-weight: normal;
   font-style: normal;
 }
@@ -469,7 +467,7 @@ $steps: 20;
 }
 
 .table {
-  width: 20%;
+  // width: 20%;
   height: 30px;
   background-color: #d4e5ff;
   display: flex;
