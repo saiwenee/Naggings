@@ -502,8 +502,8 @@ $steps: 20;
   /* line-height: 24px; */
   position: relative;
   display: inline-block;
-  animation: move 20s infinite linear;
-  color: #EBB55F;
+  animation: move 15s infinite linear;
+  color: #fff;
 }
 
 @keyframes move {
