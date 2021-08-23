@@ -407,7 +407,7 @@ export default {
 <style lang="scss" scoped>
 @font-face {
   font-family: 'ipix'; //重命名字体名
-  src: url('@/assets/fonts/ipix_12px.ttf'); //引入字体
+  src: url('../src/assets/fonts/ipix_12px.ttf'); //引入字体
   font-weight: normal;
   font-style: normal;
 }
