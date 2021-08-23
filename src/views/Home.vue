@@ -87,13 +87,14 @@
           Capitalize
           text-gray-400
           tracking-wider
-          text-left
+          text-center
           leading-none
           antialiased
           italic
           font-light
+          leading-relaxed
           w-full
-          my-3
+          my-2
           md:w-1/2
           lg:my-3
           lg:px-4
@@ -105,17 +106,18 @@
           href="https://7ee.life"
           class="no-underline hover:underline hover:text-gray-700"
           >7ee</a
-        >. All rights reserved. Power By
+        >. All rights reserved. <br />
+        Power By
         <a
           href="https://vercel.com"
-          class="no-underline hover:underline ..."
+          class="no-underline hover:underline hover:text-gray-700"
           target="_blank"
           >Vercel</a
         >
         &
         <a
           href="https://leancloud.app"
-          class="no-underline hover:underline ..."
+          class="no-underline hover:underline hover:text-gray-700"
           target="_blank"
           >LeanCloud</a
         >
@@ -123,7 +125,7 @@
       <div
         class="
           flex flex-nowrap flex-row
-          justify-end
+          justify-center
           items-center
           w-full
           md:w-1/2
