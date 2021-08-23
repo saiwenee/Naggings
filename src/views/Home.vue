@@ -1,7 +1,16 @@
 <template>
   <div class="container my-12 mx-auto px-4 md:px-12">
     <div class="flex flex-wrap flex-col items-center -mx-1 lg:-mx-4">
-      <p class="tip" v-on:click="bb">7ee 现在一共 BB 了 {{ count }} 条</p>
+      <h1 class="topic" data-text="7ee">7ee</h1>
+      <div class="table" v-on:click="bb">
+        <div class="monitor-wrapper">
+          <div class="monitor">
+            <p>
+              7ee 现在一共 BB 了 {{ count }} 条
+            </p>
+          </div>
+        </div>
+      </div>
       <div
         v-if="clickCount === 7"
         class="
@@ -397,3 +406,112 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+@font-face {
+  font-family: 'ipix';  //重命名字体名
+  src: url('@/assets/fonts/ipix_12px.ttf');  //引入字体
+  font-weight: normal;
+  font-style: normal;
+}
+
+$primaryColor: #fd5f00;
+$secondaryColor: #f7f3e9;
+$steps: 20;
+
+.topic {
+  position: relative;
+  font-family: sans-serif;
+  font-size: 7em;
+  text-transform: uppercase;
+  text-shadow: 6px -6px 0px $primaryColor;
+  background: repeating-linear-gradient(
+    45deg,
+    #005792,
+    #005792 1px,
+    #fff 2px,
+    #fff 3px
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  &::before,
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: $secondaryColor;
+    color: $primaryColor;
+    clip: rect(0, 900px, 0, 0);
+    overflow: hidden;
+  }
+
+  &::before {
+    left: 7px;
+    text-shadow: 1px 0 $primaryColor;
+    animation: glitch-effect 3s infinite linear alternate-reverse;
+  }
+
+  &::after {
+    left: 3px;
+    text-shadow: -1px 0 $primaryColor;
+    animation: topic-effect 2s infinite linear alternate-reverse;
+  }
+}
+
+@keyframes topic-effect {
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+    }
+  }
+}
+
+.table {
+  width: 20%;
+  height: 30px;
+  background-color: #d4e5ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.table .monitor-wrapper {
+  background: #050321;
+  width: 95%;
+  height: 25px;
+  box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.table .monitor-wrapper .monitor {
+  width: 100%;
+  height: 20px;
+  background-color: #344151;
+  overflow: hidden;
+  white-space: nowrap;
+  box-shadow: inset 0px 5px 10px 2px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.table .monitor-wrapper .monitor p {
+  font-family: ipix;
+  font-size: 12px;
+  /* line-height: 24px; */
+  position: relative;
+  display: inline-block;
+  animation: move 20s infinite linear;
+  color: #EBB55F;
+}
+
+@keyframes move {
+  from {
+    left: 300px;
+  }
+  to {
+    left: -300px;
+  }
+}
+</style>
