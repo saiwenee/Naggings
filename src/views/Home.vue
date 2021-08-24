@@ -316,6 +316,9 @@ const Todo = AV.Object.extend('naggings');
 // 构建对象
 const todo = new Todo();
 export default {
+  computed(){
+
+  },
   data() {
     return {
       year: 2021,
@@ -405,6 +408,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+@use "sass:math";
 @font-face {
   font-family: 'ipix'; //重命名字体名
   src: url('../src/assets/fonts/ipix_12px.ttf'); //引入字体
@@ -414,7 +418,7 @@ export default {
 
 $primaryColor: #fd5f00;
 $secondaryColor: #f7f3e9;
-$steps: 20;
+$steps: 25;
 
 .topic {
   position: relative;
@@ -460,7 +464,7 @@ $steps: 20;
 
 @keyframes topic-effect {
   @for $i from 0 through $steps {
-    #{percentage($i*(1/$steps))} {
+    #{percentage($i * math.div(1, $steps))} {
       clip: rect(random(100) + px, 9999px, random(100) + px, 0);
     }
   }
@@ -500,16 +504,16 @@ $steps: 20;
   /* line-height: 24px; */
   position: relative;
   display: inline-block;
-  animation: move 15s infinite linear;
+  animation: move 5s infinite linear;
   color: #fff;
 }
 
 @keyframes move {
   from {
-    left: 300px;
+    left: 250px;
   }
   to {
-    left: -300px;
+    left: -210px;
   }
 }
 </style>

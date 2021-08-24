@@ -11,7 +11,7 @@
     "leancloud-storage": "^4.11.1",
     "moment": "^2.29.1",
     "oh-vue-icons": "^0.4.7",
-    "sass": "^1.38.0",
+    "sass": "~1.38.0",
     "vue": "^3.2.4",
     "vue-router": "^4.0.11"
   },
