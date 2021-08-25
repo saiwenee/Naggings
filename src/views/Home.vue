@@ -486,8 +486,8 @@ export default {
 <style lang="scss" scoped>
 @use "sass:math";
 @font-face {
-  font-family: 'ipix'; //重命名字体名
-  src: url('../src/assets/fonts/ipix_12px.ttf'); //引入字体
+  font-family: 'pix'; //重命名字体名
+  src: url('https://lc-gluttony.s3.amazonaws.com/Smmpeujdjngp/ePjvAzTWBC4G10pPDUSsv5i8rvrUQEtC/ipix_12px.ttf'); //引入字体
   font-weight: normal;
   font-style: normal;
 }
@@ -575,7 +575,7 @@ $steps: 25;
   align-items: center;
 }
 .table .monitor-wrapper .monitor p {
-  font-family: ipix;
+  font-family: pix;
   font-size: 12px;
   /* line-height: 24px; */
   position: relative;
