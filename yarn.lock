@@ -682,10 +682,10 @@
   resolved "https://registry.nlark.com/@vant/use/download/@vant/use-1.3.0.tgz?cache=0&sync_timestamp=1628323555739&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40vant%2Fuse%2Fdownload%2F%40vant%2Fuse-1.3.0.tgz#b7d461c00078f7501ff7678771f1431fbf747b42"
   integrity sha1-t9RhwAB491Af92eHcfFDH790e0I=
 
-"@vitejs/plugin-vue@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@vitejs/plugin-vue/-/plugin-vue-1.4.0.tgz#962ae01b7fd16ad4007898c64ed639136e12215b"
-  integrity sha512-RkqfJHz9wdLKBp5Yi+kQL8BAljdrvPoccQm2PTZc/UcL4EjD11xsv2PPCduYx2oV1a/bpSKA3sD5sxOHFhz+LA==
+"@vitejs/plugin-vue@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@vitejs/plugin-vue/-/plugin-vue-1.5.0.tgz#8b05b84e2e81d64423800541d9cd34245226a60b"
+  integrity sha512-DwTvr9J/SSYHsrTiYTWAaUn0OnqgdINlfuhtxpWHcJVUtxGt07zZylV/ITjfeYgdcUCi0oLD+n9lwLnxlYSGtA==
 
 "@vue/compiler-core@3.2.4":
   version "3.2.4"
