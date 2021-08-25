@@ -2,10 +2,10 @@
   <div class="container my-12 mx-auto px-4 md:px-12">
     <div class="flex flex-wrap flex-col items-center -mx-1 lg:-mx-4">
       <h1 class="topic" data-text="7ee">7ee</h1>
-      <div class="table lg:w-1/5" v-on:click="bb">
+      <div class="table w-60 my-2" v-on:click="openbb">
         <div class="monitor-wrapper">
           <div class="monitor">
-            <p>7ee 现在一共 BB 了 {{ count }} 条</p>
+            <p>{{ date }} 7ee 目前一共 BB 了 {{ count }} 条</p>
           </div>
         </div>
       </div>
@@ -23,8 +23,45 @@
           text-sm
         "
       >
-        <v-md-editor v-model="nagging" height="400px"></v-md-editor>
+        <v-md-editor v-model="newbb" height="400px"></v-md-editor>
         <div class="flex flex-nowrap flex-row justify-end items-center">
+          <input
+            type="username"
+            class="
+              appearance-none
+              border-2 border-white
+              rounded
+              w-1/4
+              py-1
+              mx-2
+              text-grey-darker
+              leading-tight
+              focus:outline-none
+              focus:bg-white
+              focus:shadow-lg
+              text-center
+            "
+            placeholder="username"
+            v-model="username"
+          />
+          <input
+            type="password"
+            class="
+              appearance-none
+              border-2 border-white
+              rounded
+              w-1/4
+              py-1
+              mx-2
+              text-grey-darker
+              leading-tight
+              focus:outline-none
+              focus:shadow-lg
+              text-center
+            "
+            placeholder="password"
+            v-model="password"
+          />
           <button
             class="
               bg-blue-500
@@ -32,15 +69,17 @@
               text-white
               font-normal
               py-1
-              px-3
+              px-4
               m-2
               border-b-4 border-blue-700
               hover:border-blue-500
               rounded
               inline-flex
               items-center
+              disabled:opacity-50
             "
-            v-on:click="clickCount = 0"
+            :disabled="username && password && newbb == ''"
+            v-on:click="saveNagging(username, password, newbb)"
           >
             BB
           </button>
@@ -51,7 +90,7 @@
               text-white
               font-normal
               py-1
-              px-2
+              px-3
               m-2
               border-b-4 border-red-700
               hover:border-red-500
@@ -69,6 +108,7 @@
       <div
         class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/2"
         v-for="item in contents"
+        :key="item.id"
         v-cloak
       >
         <article class="overflow-hidden rounded-lg shadow-lg">
@@ -82,11 +122,23 @@
           <v-md-preview :text="item.attributes.nagging"></v-md-preview>
         </article>
       </div>
-      <div class="load-ctn">
-        <button class="load-btn" v-on:click="loadMore" v-if="contents" v-cloak>
+      <div class="load-ctn mt-5">
+        <button
+          class="
+            load-btntransition
+            border-b-2 border-white
+            duration-500
+            ease-in-out
+            hover:border-blue-200
+            transform
+            hover:-translate-y-2
+          "
+          v-on:click="loadMore"
+          v-if="count > 20"
+          v-cloak
+        >
           再翻翻
         </button>
-        <p class="tip" v-else>别急，加载呢</p>
       </div>
       <span
         class="
@@ -108,7 +160,8 @@
           lg:w-1/2
         "
       >
-        Copyright © {{ year }}
+        Copyright © {{ createYear }}
+        <span class="mr-1" v-if="(nowYear < createYear)">- {{ nowYear }} </span>
         <a
           href="https://7ee.life"
           class="no-underline hover:underline hover:text-gray-700"
@@ -309,19 +362,19 @@
 <script>
 import AV from 'leancloud-storage';
 import moment from 'moment-mini';
-
 const query = new AV.Query('naggings');
-// 声明 class
-const Todo = AV.Object.extend('naggings');
-// 构建对象
-const todo = new Todo();
+const BB = AV.Object.extend('naggings');
+const bb = new BB();
 export default {
-  computed(){
-
-  },
   data() {
     return {
-      year: 2021,
+      newbb: '',
+      username: '',
+      password: '',
+      date: '',
+      createYear: 2021,
+      nowYear: '',
+      createDate: '2021-8-19',
       page: 0,
       count: 0,
       contents: [],
@@ -334,51 +387,69 @@ export default {
     };
   },
   created() {
+    this.nowYear = moment().format('YYYY');
     AV.init({
       appId: 'SmmpeujdjngpjQzUxlKjesJq-MdYXbMMI',
-
       appKey: 'kksSDbuPjrTXj5o0Jwvqgafw'
     });
   },
   mounted() {
     let that = this;
+    that.timer = setInterval(() => {
+      that.date = moment().format('YYYY年MM月DD日HH时mm分ss秒');
+    }, 1000);
     that.getData(0);
     //计数
-    query.count().then(
-      function (count) {
-        that.count = count;
-      },
-      function (error) {}
-    );
+    that.getCount()
+  },
+  beforeDestroy() {
+    let that = this;
+    if (that.timer) {
+      clearInterval(that.timer); // 在Vue实例销毁前，清除我们的定时器
+    }
   },
   methods: {
-    loadMore(event) {
-      // let that = this;
+    loadMore() {
       this.getData(++this.page);
     },
-    bb() {
+    openbb() {
       if (this.clickCount < 7) {
         this.clickCount++;
-        console.log(this.clickCount);
       }
     },
-    saveNagging() {
-      todo.set('nagging', 'test');
-
-      // 将对象保存到云端
-      todo.save().then(
-        (todo) => {
-          // 成功保存之后，执行其他逻辑
-          console.log(`保存成功。objectId：${todo.id}`);
+    saveNagging(username, password, newbb) {
+      bb.set('nagging', newbb);
+      AV.User.logIn(username, password).then(
+        () => {
+          console.log('登录成功');
+          bb.save().then((bb) => {
+            this.clickCount = 0;
+            console.log(`bb成功 objectId：${bb.id}`);
+            this.getCount()
+            this.getData(0)
+          });
         },
         (error) => {
-          // 异常处理
+          console.log(`登录失败${error}`);
         }
       );
     },
+    async getCount(){
+      query.count().then((count)=>{
+        this.count = count;
+        console.log('bb总数获取成功');
+      },
+      (error) => {
+        console.log(`bb总数获取失败${error}`);
+      }
+    );
+    },
 
     //获取数据
-    getData: function (page = 0) {
+    async getData(page = 0) {
+      if(page == 0 ){
+        this.contents = []
+      }
       query
         .descending('createdAt')
         .skip(page * 20)
@@ -387,21 +458,26 @@ export default {
         .then(
           (results) => {
             if (results.length == 0) {
-              alert('之前没 b 过了');
+              console.log('之前没 b 过了');
             } else {
               let resC = results;
-              console.log(resC);
+              // console.log(resC);
               resC.forEach((i) => {
                 i.attributes.time = moment(i.createdAt).format(
                   'dddd, MMMM Do YYYY, h:mm:ss a'
                 );
                 i.attributes.nowTime = moment(i.createdAt).fromNow();
+                i.attributes.id = i.id
                 // i.attributes.time = i.createdAt
                 this.contents.push(i);
+                // console.log(this.contents);
               });
+              console.log('bb获取成功');
             }
           },
-          function (error) {}
+          (error) => {
+            console.log(`bb获取失败${error}`);
+          }
         );
     }
   }
@@ -471,7 +547,7 @@ $steps: 25;
 }
 
 .table {
-  // width: 20%;
+  // width: 50vw;
   height: 30px;
   background-color: #d4e5ff;
   display: flex;
@@ -480,7 +556,7 @@ $steps: 25;
 }
 .table .monitor-wrapper {
   background: #050321;
-  width: 95%;
+  width: 98%;
   height: 25px;
   box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.3);
   display: flex;
@@ -504,16 +580,16 @@ $steps: 25;
   /* line-height: 24px; */
   position: relative;
   display: inline-block;
-  animation: move 5s infinite linear;
+  animation: move 10s infinite linear;
   color: #fff;
 }
 
 @keyframes move {
   from {
-    left: 250px;
+    left: 300px;
   }
   to {
-    left: -210px;
+    left: -300px;
   }
 }
 </style>
