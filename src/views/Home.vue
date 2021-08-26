@@ -487,7 +487,8 @@ export default {
 @use "sass:math";
 @font-face {
   font-family: 'pix'; //重命名字体名
-  src: url('https://lc-gluttony.s3.amazonaws.com/Smmpeujdjngp/ePjvAzTWBC4G10pPDUSsv5i8rvrUQEtC/ipix_12px.ttf'); //引入字体
+  src: url('https://lc-gluttony.s3.amazonaws.com/Smmpeujdjngp/uxUtV0oDWsMQs4yu5XrSSOoH7RmBMesA/ipix_12px.woff2') format('woff2');
+   //引入字体
   font-weight: normal;
   font-style: normal;
 }
