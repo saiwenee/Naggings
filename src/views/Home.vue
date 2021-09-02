@@ -2,6 +2,7 @@
   <div class="container my-12 mx-auto px-4 md:px-12">
     <div class="flex flex-wrap flex-col items-center -mx-1 lg:-mx-4">
       <h1 class="topic" data-text="7ee">7ee</h1>
+      
       <div class="table w-60 my-2" v-on:click="openbb">
         <div class="monitor-wrapper">
           <div class="monitor">
@@ -9,6 +10,26 @@
           </div>
         </div>
       </div>
+      <p
+        class="
+          text-xs
+          Capitalize
+          text-gray-400
+          tracking-wider
+          text-center
+          leading-none
+          antialiased
+          italic
+          font-light
+          leading-relaxed
+          w-full
+          my-2
+          md:w-1/2
+          lg:my-3
+          lg:px-4
+          lg:w-1/2
+        "
+      >“好好生活，別的去他媽的。”</p>
       <div
         v-if="clickCount === 7"
         class="
