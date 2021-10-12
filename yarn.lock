@@ -353,11 +353,6 @@
   resolved "https://registry.nlark.com/@braintree/sanitize-url/download/@braintree/sanitize-url-3.1.0.tgz#8ff71d51053cd5ee4981e5a501d80a536244f7fd"
   integrity sha1-j/cdUQU81e5JgeWlAdgKU2JE9/0=
 
-"@element-plus/icons@^0.0.11":
-  version "0.0.11"
-  resolved "https://registry.nlark.com/@element-plus/icons/download/@element-plus/icons-0.0.11.tgz#9b187c002774548b911850d17fa5fc2f9a515f57"
-  integrity sha1-mxh8ACd0VIuRGFDRf6X8L5pRX1c=
-
 "@headlessui/vue@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@headlessui/vue/-/vue-1.4.0.tgz#a4a3f392d6e72923f101e307fcfa6c80c00ea446"
@@ -368,16 +363,15 @@
   resolved "https://registry.yarnpkg.com/@heroicons/vue/-/vue-1.0.4.tgz#dcfd957a9abc827321054e643f6fb73629b3eef6"
   integrity sha512-jm7JMoUGr7Asn07oYNmewxkdQALnskTzRo17iGpHG/apLcc+GFdvdN4XvWZ2awStodaqeZ4eYWg7UcI0LvLETQ==
 
-"@kangc/v-md-editor@^2.3.8":
-  version "2.3.8"
-  resolved "https://registry.nlark.com/@kangc/v-md-editor/download/@kangc/v-md-editor-2.3.8.tgz#cb741e23dfe888019c0ec4cbd71cf2c7eedc7026"
-  integrity sha1-y3QeI9/oiAGcDsTL1xzyx+7ccCY=
+"@kangc/v-md-editor@^2.3.12":
+  version "2.3.12"
+  resolved "https://registry.yarnpkg.com/@kangc/v-md-editor/-/v-md-editor-2.3.12.tgz#2e00bf9844d0f4c9782793b9cd8ccba018a8ce5c"
+  integrity sha512-BXKtiw91/kuNHc7TD0WRBZbO85VlqyzhUGYC6+zkbIP2ZHYhkl/7d53XCUiQcLFewZK4Nu3DQeEleOqi6qk1dw==
   dependencies:
     "@babel/runtime" "^7.14.0"
     "@vuepress/markdown" "^1.8.2"
     codemirror "^5.61.1"
     copy-to-clipboard "^3.3.1"
-    element-plus "^1.0.2-beta.55"
     highlight.js "^10.7.2"
     insert-text-at-cursor "^0.3.0"
     katex "^0.13.11"
@@ -575,7 +569,7 @@
     jscodeshift "^0.11.0"
     semver "^7.3.4"
 
-"@popperjs/core@^2.4.4", "@popperjs/core@^2.9.2":
+"@popperjs/core@^2.9.2":
   version "2.9.3"
   resolved "https://registry.nlark.com/@popperjs/core/download/@popperjs/core-2.9.3.tgz#8b68da1ebd7fc603999cf6ebee34a4899a14b88e"
   integrity sha1-i2jaHr1/xgOZnPbr7jSkiZoUuI4=
@@ -950,11 +944,6 @@ async-limiter@~1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/async-limiter/-/async-limiter-1.0.1.tgz#dd379e94f0db8310b08291f9d64c3209766617fd"
   integrity sha512-csOlWGAcRFJaI6m+F2WKdnMKr4HhdhFVBk0H/QbJFMCr+uO2kwohwXQPxw/9OCxp05r5ghVBFSyioixx3gfkNQ==
-
-async-validator@^3.4.0:
-  version "3.5.2"
-  resolved "https://registry.nlark.com/async-validator/download/async-validator-3.5.2.tgz?cache=0&sync_timestamp=1629167656437&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fasync-validator%2Fdownload%2Fasync-validator-3.5.2.tgz#68e866a96824e8b2694ff7a831c1a25c44d5e500"
-  integrity sha1-aOhmqWgk6LJpT/eoMcGiXETV5QA=
 
 asynckit@^0.4.0:
   version "0.4.0"
@@ -1716,11 +1705,6 @@ dagre@^0.8.5:
     graphlib "^2.1.8"
     lodash "^4.17.15"
 
-dayjs@1.x:
-  version "1.10.6"
-  resolved "https://registry.nlark.com/dayjs/download/dayjs-1.10.6.tgz#288b2aa82f2d8418a6c9d4df5898c0737ad02a63"
-  integrity sha1-KIsqqC8thBimydTfWJjAc3rQKmM=
-
 debug@^2.2.0, debug@^2.3.3:
   version "2.6.9"
   resolved "https://registry.nlark.com/debug/download/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
@@ -1845,20 +1829,6 @@ electron-to-chromium@^1.3.811:
   version "1.3.812"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.812.tgz#4c4fb407e0e1335056097f172e9f2c0a09efe77d"
   integrity sha512-7KiUHsKAWtSrjVoTSzxQ0nPLr/a+qoxNZwkwd9LkylTOgOXSVXkQbpIVT0WAUQcI5gXq3SwOTCrK+WfINHOXQg==
-
-element-plus@^1.0.2-beta.55:
-  version "1.0.2-beta.71"
-  resolved "https://registry.nlark.com/element-plus/download/element-plus-1.0.2-beta.71.tgz?cache=0&sync_timestamp=1629258472244&other_urls=https%3A%2F%2Fregistry.nlark.com%2Felement-plus%2Fdownload%2Felement-plus-1.0.2-beta.71.tgz#148f16d5a0a800549989f7869bbf4d656c652d36"
-  integrity sha1-FI8W1aCoAFSZifeGm79NZWxlLTY=
-  dependencies:
-    "@element-plus/icons" "^0.0.11"
-    "@popperjs/core" "^2.4.4"
-    async-validator "^3.4.0"
-    dayjs "1.x"
-    lodash "^4.17.20"
-    mitt "^2.1.0"
-    normalize-wheel "^1.0.1"
-    resize-observer-polyfill "^1.5.1"
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -2920,7 +2890,7 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-lodash@^4.17.10, lodash@^4.17.15, lodash@^4.17.20, lodash@^4.17.21:
+lodash@^4.17.10, lodash@^4.17.15, lodash@^4.17.21:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
@@ -3151,11 +3121,6 @@ miniprogram-api-typings@^2.10.2:
   resolved "https://registry.yarnpkg.com/miniprogram-api-typings/-/miniprogram-api-typings-2.12.0.tgz#7a29c90f3e5efa36588422d1f01e22d3394aaaa1"
   integrity sha512-ibvbqeslVFur0IAvTxLMvsbtvVcMo6gwvOnj0YZHV7aeDLu091VQRrETT2QuiG9P6aZWRcxeNGJChRKVPCp9VQ==
 
-mitt@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.nlark.com/mitt/download/mitt-2.1.0.tgz?cache=0&sync_timestamp=1624481394885&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fmitt%2Fdownload%2Fmitt-2.1.0.tgz#f740577c23176c6205b121b2973514eade1b2230"
-  integrity sha1-90BXfCMXbGIFsSGylzUU6t4bIjA=
-
 mixin-deep@^1.2.0:
   version "1.3.2"
   resolved "https://registry.npm.taobao.org/mixin-deep/download/mixin-deep-1.3.2.tgz#1120b43dc359a785dce65b55b82e257ccf479566"
@@ -3259,11 +3224,6 @@ normalize-range@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/normalize-range/-/normalize-range-0.1.2.tgz#2d10c06bdfd312ea9777695a4d28439456b75942"
   integrity sha1-LRDAa9/TEuqXd2laTShDlFa3WUI=
-
-normalize-wheel@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npm.taobao.org/normalize-wheel/download/normalize-wheel-1.0.1.tgz#aec886affdb045070d856447df62ecf86146ec45"
-  integrity sha1-rsiGr/2wRQcNhWRH32Ls+GFG7EU=
 
 number-is-nan@^1.0.0:
   version "1.0.1"
