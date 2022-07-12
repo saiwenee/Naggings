@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@kangc/v-md-editor": "^2.3.8",
-    "leancloud-storage": "^4.11.1",
+    "leancloud-storage": "^4.13.0",
     "moment": "^2.29.1",
     "oh-vue-icons": "^0.4.7",
     "sass": "~1.38.0",
